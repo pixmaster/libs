@@ -1,5 +1,13 @@
-function createNS (_namespace, _scope, _data, _namespaceType) {
-  var namespaceSeparator = _namespaceType || '.';
+/**
+ *
+ * @param {String} _namespace Path in scope
+ * @param {Object|null} [_scope] Target object
+ * @param {*} [_data] It if need append data immediately
+ * @param {String} [_namespaceSeparator="."] Namespace separator
+ * @returns {Object}
+ */
+function createNS (_namespace, _scope, _data, _namespaceSeparator) {
+  var namespaceSeparator = _namespaceSeparator || '.';
   var nsparts = _namespace.split(namespaceSeparator);
   var current = _scope || window;
 
@@ -24,11 +32,18 @@ function createNS (_namespace, _scope, _data, _namespaceType) {
   return current;
 }
 
-function getNS (_namespace, _scope, _namespaceType) {
-  if (_namespace) {
-    var namespaceSeparator = _namespaceType || '.';
+/**
+ *
+ * @param {String} _namespace Path in scope
+ * @param {Object} _scope Target object
+ * @param {String} [_namespaceSeparator="."] Namespace separator
+ * @returns {Object|null}
+ */
+function getNS (_namespace, _scope, _namespaceSeparator) {
+  if (_namespace && _scope) {
+    var namespaceSeparator = _namespaceSeparator || '.';
     var nsparts = _namespace.split(namespaceSeparator);
-    var current = _scope || window;
+    var current = _scope;
 
     function nspartsMapHandler (_nspart) {
 
