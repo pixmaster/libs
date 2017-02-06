@@ -1,8 +1,8 @@
 /**
- *
+ * @description Create object by path and return last node from path.
  * @param {String} _namespace Path in scope
  * @param {Object|null} [_scope] Target object
- * @param {*} [_data] It if need append data immediately
+ * @param {*} [_data] It if need append data to last node immediately
  * @param {String} [_namespaceSeparator="."] Namespace separator
  * @returns {Object}
  */
@@ -33,7 +33,7 @@ function createNS (_namespace, _scope, _data, _namespaceSeparator) {
 }
 
 /**
- *
+ * @description Get data from last node by path.
  * @param {String} _namespace Path in scope
  * @param {Object} _scope Target object
  * @param {String} [_namespaceSeparator="."] Namespace separator
